@@ -1,0 +1,9 @@
+<form autocomplete="off" (ngSubmit)="cercar()" class="animate__animated animate__fadeIn animate__faster">
+    <input 
+        type="text"
+        name="terme"
+        class="form-control"
+        [(ngModel)]="terme"
+        (input)="teclaPresionada()"
+        placeholder="{{ placeholder }}">
+</form>

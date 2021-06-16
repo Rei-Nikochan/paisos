@@ -1,0 +1,20 @@
+<h2 class="animate__animated animate__fadeIn animate__faster">Escull un Continent: <small> {{ continentActiu | titlecase }} </small></h2>
+<hr>
+<div class="row"  class="animate__animated animate__fadeIn animate__faster">
+    <div class="col" >
+        <button
+        
+        *ngFor  = 'let continent of continents'
+        [class] = "getClasseCss( continent )"
+        (click) = 'activarContinent( continent )'   
+        > {{ continent | titlecase}} </button>
+    </div>
+</div>
+<br>
+
+
+<app-pais-taula
+    *ngIf="paisos.length > 0"
+    [paisos] = "paisos"
+
+></app-pais-taula>

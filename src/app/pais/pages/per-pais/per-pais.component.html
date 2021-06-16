@@ -1,0 +1,31 @@
+<h2 class="animate__animated animate__fadeIn animate__faster">Per País:</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <app-pais-input
+      class="animate__animated animate__fadeIn animate__faster"
+      (onEnter)="cercar($event)"
+      (onDebounce)="sugerencies($event)"
+      placeholder="Cerca un país..."
+    ></app-pais-input>
+  </div>
+</div>
+
+<ul class="list-group" *ngFor="let pais of paisosSugerits">
+  <li class="list-group-item list-group-item-action">
+    <a class="nav-link" [routerLink]="['/pais', pais.alpha2Code]">
+      {{ pais.name }}
+    </a>
+  </li>
+</ul>
+
+<hr />
+<div *ngIf="hihaError" class="alert alert-danger">
+  No s'ha trobat cap país que contingui {{ terme }}
+</div>
+
+<div class="row" *ngIf="paisos.length > 0">
+  <div class="col">
+    <app-pais-taula [paisos]="paisos" [hihaError]="hihaError"></app-pais-taula>
+  </div>
+</div>
